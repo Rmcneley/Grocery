@@ -1,7 +1,37 @@
 import Ember from 'ember';
 
-var gItems = ["cheese", "Pasta Sauce", "Pancake Mix", "Pesto Sauce", "Marinara", "Vegetables","corn","Donuts","candy","test1", "test2","test1", "test2","test1", "test2","test1", "test2","test1", "test2","test2","1","2","cheese", "Pasta Sauce", "Pancake Mix", "Pesto Sauce", "Marinara", "Vegetables","corn","Donuts","candy","test1", "test2","test1", "test2","test1", "test2","test1", "test2","test1", "test2","test2","1","2"];
+var gItems = [
+  "Butter",
+  "Pasta",
+  "Pasta Sauce",
+  "Pancake Mix",
+  "Corn",
+  "Salsa",
+  "Donuts",
+  "Candy",
+  "ice cream",
+  "Bread crumbs",
+  "Coffee",
+  "Creamer",
+  "Mustard",
+  "Torillas",
+  "Bacon",
+  "Juice",
+  "Gum",
+  "Syrup",
+  "Cookies",
+  "Detergent",
+  "Soap",
+  "Toothpaste",
+  "Ketchup",
+  "Flour",
+  "Mayo",
+  "Beans",
+  "Nuts",
+  "Protein Bar",
+];
 var count = 0;
+var indexNum = 0;
 
 export default Ember.Controller.extend({
   valSend: '',
@@ -9,18 +39,18 @@ export default Ember.Controller.extend({
   val1 : 'Milk',
   val2 : 'Eggs',
   val3 : 'Bread',
-  val4 : 'Wine ',
-  val5 : 'Beer',
-  val6 : 'Whiskey',
-  val7 : 'Detergent',
-  val8 : '409',
-  val9 : 'Steak',
-  val10 : 'chicken',
-  val11 : 'pork',
-  val12 : 'lamb',
-  val13 : 'Turkey',
-  val14 : 'Bread Crumbs',
-  val15 : 'sugar',
+  val4 : 'Chips',
+  val5 : 'Cereal',
+  val6 : 'Beer',
+  val7 : 'Soda',
+  val8 : 'cheese',
+  val9 : 'Meat',
+  val10 : 'Detergent',
+  val11 : 'fruit',
+  val12 : 'Stuff for Tacos',
+  val13 : 'Peanut butter',
+  val14 : 'Jelly',
+  val15 : 'Vegetables',
 
 
   actions: {
@@ -32,18 +62,23 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick2() {
       this.set('valSend',`${this.get('val2')}`);
       this.set('val2',gItems[count]);
-      count++;
+
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
+      count++;
     },
     gClick3() {
       this.set('valSend',`${this.get('val3')}`);
@@ -52,8 +87,10 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick4() {
       this.set('valSend',`${this.get('val4')}`);
@@ -62,8 +99,10 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick5() {
       this.set('valSend',`${this.get('val5')}`);
@@ -72,8 +111,10 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick6() {
       this.set('valSend',`${this.get('val6')}`);
@@ -82,8 +123,10 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick7() {
       this.set('valSend',`${this.get('val7')}`);
@@ -92,8 +135,10 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick8() {
       this.set('valSend',`${this.get('val8')}`);
@@ -102,8 +147,10 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick9() {
       this.set('valSend',`${this.get('val9')}`);
@@ -112,8 +159,10 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick10() {
       this.set('valSend',`${this.get('val10')}`);
@@ -122,8 +171,10 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick11() {
       this.set('valSend',`${this.get('val11')}`);
@@ -132,56 +183,72 @@ export default Ember.Controller.extend({
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     },
     gClick12() {
       this.set('valSend',`${this.get('val12')}`);
       this.set('val12',gItems[count]);
-      count++;
+
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
+      count++;
     },
     gClick13() {
       this.set('valSend',`${this.get('val13')}`);
       this.set('val13',gItems[count]);
-      count++;
+
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
+      count++;
     },
     gClick14() {
       this.set('valSend',`${this.get('val14')}`);
       this.set('val14',gItems[count]);
-      count++;
+
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
+      count++;
     },
     gClick15() {
       this.set('valSend',`${this.get('val15')}`);
       this.set('val15',gItems[count]);
-      count++;
+
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
+      count++;
     },
     addEX() {
       this.set('valSend',`${this.get('valEX')}`);
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
-        itemName: `${this.get('valSend')}`
+        itemName: `${this.get('valSend')}`,
+        id: indexNum
       });
+      indexNum++;
     }
   }
 

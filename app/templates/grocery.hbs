@@ -5,7 +5,7 @@
     <div class="container" style="width:480px;height:500px;margin-left:0px;margin-right:0px;padding-right:0px;padding-left:0px;">
       <div class="col-md-6 col-md-offset-0" style="height:375px;width:450px;background-color:rgba(55,198,207,0.69);overflow-y:scroll;box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);margin-left:22px;">
         {{#each model as |list-item|}}
-          {{#grocery-list name=list-item.itemName amt=list-item.itemAmt desc=list-item.itemDesc}}
+          {{#grocery-list name=list-item.itemName amt=list-item.itemAmt desc=list-item.itemDesc arrIndex=list-item.id}}
           {{/grocery-list}}
         {{/each}}
       </div>
