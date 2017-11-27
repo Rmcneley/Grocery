@@ -7,6 +7,8 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
   });
+  //app.import('bower_components/file-saver/FileSaver.js');
+  app.import('vendor/FileSaver.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
