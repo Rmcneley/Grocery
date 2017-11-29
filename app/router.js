@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('grocMain');
   this.route('groceryList');
   this.route('grocery');
+  this.route('user');
 });
 
 export default Router;

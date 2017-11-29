@@ -3,6 +3,14 @@
 
 module.exports = function(environment) {
   let ENV = {
+      firebase: {
+      apiKey: "AIzaSyAUOCehrymGXaJ4Fji7fnJOcrtCnP9aCkE",
+      authDomain: "grocery-list-14be8.firebaseapp.com",
+      databaseURL: "https://grocery-list-14be8.firebaseio.com",
+      projectId: "grocery-list-14be8",
+      storageBucket: "grocery-list-14be8.appspot.com",
+      messagingSenderId: "598078079647"
+    },
     modulePrefix: 'grocery',
     environment,
     rootURL: '/',
