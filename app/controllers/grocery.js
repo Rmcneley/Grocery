@@ -56,16 +56,15 @@ export default Ember.Controller.extend({
   actions: {
     download() {
       var list = this.store.peekAll('list-item');
-      var length = list.get('length');
       var fileInfo = []
-      for (var i = 0; i < length; i++)
+      for (var i = 0; i < indexNum; i++)
       {
         var temp = [];
         var arr = list.objectAt(i);
         var hash = arr.getProperties('itemName', 'itemAmt','itemDesc');
         temp = ['- ' + hash.itemName + '\n' ];
 
-        if (hash.itemDesc != '' && hash.itemDesc != null)
+        if (hash.itemDesc != null)
         {
           temp += "\tDescription: " + hash.itemDesc + '\n';
         }
@@ -75,10 +74,9 @@ export default Ember.Controller.extend({
         }
         fileInfo.push(temp);
       }
+      console.log(fileInfo)
       var file = new File(fileInfo, "Grocery List.txt", {type: "text/plain;charset=utf-8"});
       saveAs(file);
-    },
-    save(){
     },
     gClick1() {
       this.set('valSend', `${this.get('val1')}`);
