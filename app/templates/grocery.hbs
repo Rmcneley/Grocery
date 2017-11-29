@@ -1,0 +1,59 @@
+{{outlet}}
+<div class="container" style="height:40px;"></div>
+<div class="row" style="height:500px;width:1000px;margin:14px;padding:0px;max-width:none;background-color:rgba(66,101,170,0);">
+  <div class="col-md-12" style="padding-right:0px;padding-left:0px;width:450px;">
+    <div class="container" style="width:480px;height:500px;margin-left:0px;margin-right:0px;padding-right:0px;padding-left:0px;">
+      <div class="col-md-6 col-md-offset-0" style="height:375px;width:450px;background-color:rgba(55,198,207,0.69);overflow-y:scroll;box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);margin-left:22px;">
+        {{#each model as |list-item|}}
+          {{#grocery-list name=list-item.itemName amt=list-item.itemAmt desc=list-item.itemDesc arrIndex=list-item.id}}
+          {{/grocery-list}}
+        {{/each}}
+      </div>
+      <div class="col-md-6 col-md-offset-0" style="height:63px;width:450px;background-color:rgba(177,245,91,0.69);overflow-y:scroll;box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);margin-left:22px;margin-top:20px;">
+        <button class="btn btn-default" type="button" {{action 'download'}} style="margin-top:14px;margin-left:57px;">Export</button>
+        <button class="btn btn-default" type="button" {{action 'save'}}style="margin-top:14px;margin-left:151px;">Save </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-md-offset-0" style="height:280px;width:450px;background-color:rgba(217,204,137,0.84);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);margin-left:60px;">
+    <div style="text-align:center;margin-top:15px;">
+      <table class="table" style="table-layout:fixed;">
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><button type="button" {{action "gClick1"}} class="btn btn-info">{{val1}}</button></td>
+            <td><button type="button" {{action "gClick2"}} class="btn btn-info">{{val2}}</button></td>
+            <td><button type="button" {{action "gClick3"}} class="btn btn-info">{{val3}}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" {{action "gClick4"}} class="btn btn-info">{{val4}}</button></td>
+            <td><button type="button" {{action "gClick5"}} class="btn btn-info">{{val5}}</button></td>
+            <td><button type="button" {{action "gClick6"}} class="btn btn-info">{{val6}}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" {{action "gClick7"}} class="btn btn-info">{{val7}}</button></td>
+            <td><button type="button" {{action "gClick8"}} class="btn btn-info">{{val8}}</button></td>
+            <td><button type="button" {{action "gClick9"}} class="btn btn-info">{{val9}}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" {{action "gClick10"}} class="btn btn-info">{{val10}}</button></td>
+            <td><button type="button" {{action "gClick11"}} class="btn btn-info">{{val11}}</button></td>
+            <td><button type="button" {{action "gClick12"}} class="btn btn-info">{{val12}}</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" {{action "gClick13"}} class="btn btn-info">{{val13}}</button></td>
+            <td><button type="button" {{action "gClick14"}} class="btn btn-info">{{val14}}</button></td>
+            <td><button type="button" {{action "gClick15"}} class="btn btn-info">{{val15}}</button></td>
+          </tr>
+          <tr></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6 col-md-offset-0" style="height:150px;width:450px;background-color:rgb(103,175,224);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);margin-top:30px;margin-left:60px;">
+    <input value= {{valEX}} oninput= {{action (mut valEX) value="target.value"}} style="height:40px;width:215px;padding-left:10px;margin-left:52px;margin-top:57px;margin-right:22px;">
+    <button class="btn btn-info" {{action 'addEX'}} type="submit">Button</button>
+  </div>
+</div>
