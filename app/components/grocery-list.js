@@ -9,7 +9,6 @@ export default Ember.Component.extend({
       var store = this.get('store');
       store.findRecord('list-item', arrIndex).then(function(post) {
         store.unloadRecord(post);
-        //Ember.run.schedule('destroy', post);
       });
     },
   }
