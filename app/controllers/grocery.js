@@ -79,6 +79,7 @@ export default Ember.Controller.extend({
       saveAs(file);
     },
     save(){
+      // do Firebase stuff here
     },
     gClick1() {
       this.set('valSend', `${this.get('val1')}`);

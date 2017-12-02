@@ -1,0 +1,27 @@
+{
+ {
+  "_id": {
+    "$oid": "5968dd23fc13ae04d9000001"
+  },
+  "product_name": "apple",
+  "description": "apple",
+  "rank": 261
+ }, 
+ {
+  "_id": {
+    "$oid": "5968dd23fc13ae04d9000002"
+  },
+  "product_name": "chips",
+  "description": "cheetos",
+  "rank": 292
+ }, 
+ {
+  "_id": {
+    "$oid": "5968dd23fc13ae04d9000003"
+  },
+  "product_name": "Dextromathorphan HBr",
+  "description": "Schmitt-Weissnat",
+  "rank": 211
+ }
+}
+
