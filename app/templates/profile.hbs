@@ -2,7 +2,7 @@
 {{#if session.isAuthenticated}}
 <div class="container">
   <div class="col-sm-6 img-rounded" style=" width:97%; background-color:rgba(217,204,137,0.84);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);">
-    <h1>User profile information</h1>
+    <h1>Welcome {{name}}</h1>
     <p>When a user is logged in, their information is shown here.  If they have previously saved lists, the 5 most recent lists will be produced in its own container below.  Each container will have a export button which will export the list in the same way the the create list page does.  It will also have a modify button that directs the user to the create list page and fills the list side with the current list information. </p>
   </div>
   <div class="col-sm-6" style="height:40px">
