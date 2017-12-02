@@ -21,6 +21,17 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    firebase: {
+      apiKey: 'AIzaSyDdH-mQBXl_ujYe1ooC0Nr4JcwnwGcadCA',
+      authDomain: 'ember-app-3bf40.firebaseapp.com',
+      databaseURL: "https://ember-app-3bf40.firebaseio.com",
+      projectId: "ember-app-3bf40",
+      storageBucket: "ember-app-3bf40.appspot.com",
+      messagingSenderId: "816519448828"
+    },
+    torii: {
+      sessionServiceName: 'session'
     }
   };
 

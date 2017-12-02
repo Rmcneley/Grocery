@@ -52,7 +52,6 @@ export default Ember.Controller.extend({
   val14: 'Jelly',
   val15: 'Vegetables',
 
-
   actions: {
     download() {
       var list = this.store.peekAll('list-item');
@@ -79,6 +78,7 @@ export default Ember.Controller.extend({
       saveAs(file);
     },
     save(){
+
     },
     gClick1() {
       this.set('valSend', `${this.get('val1')}`);

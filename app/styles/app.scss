@@ -1,1 +1,23 @@
 @import "bootstrap";
+
+$altColor1: lightBlue;
+$altColor2: lightGreen;
+
+.list-scroll > .row {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.list-scroll > .row > .col-xs-4 {
+  display: inline-block;
+  float: none;
+}
+
+.list-scroll > .row > .img-rounded {
+  background-color: $altColor1;
+  height: 300px;
+}
+
+.list-scroll > .row > .img-rounded alternate {
+  background-color: $altColor2;
+}

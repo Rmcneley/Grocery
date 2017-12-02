@@ -1,7 +1,7 @@
 {{outlet}}
-
+{{#if session.isAuthenticated}}
 <div class="container">
-  <div class="col-sm-6 img-rounded" style="background-color:lightBlue; width:97%; height:150px">
+  <div class="col-sm-6 img-rounded" style=" width:97%; background-color:rgba(217,204,137,0.84);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);">
     <h1>User profile information</h1>
     <p>When a user is logged in, their information is shown here.  If they have previously saved lists, the 5 most recent lists will be produced in its own container below.  Each container will have a export button which will export the list in the same way the the create list page does.  It will also have a modify button that directs the user to the create list page and fills the list side with the current list information. </p>
   </div>
@@ -9,30 +9,51 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row-offset-1">
-    <div class="col-sm-6 img-rounded" style="background-color:lightBlue; width:16%; height:300px">
-      <h3>Saved List 1</h3>
-    </div>
-    <div class="col-sm-6 img-rounded" style="width:2%">
-    </div>
-    <div class="col-sm-6 img-rounded" style="background-color:lightGreen; width:16%; height:300px">
-      <h3>Saved List 2</h3>
-    </div>
-    <div class="col-sm-6 img-rounded" style="width:2%">
-    </div>
-    <div class="col-sm-6 img-rounded" style="background-color:lightBlue; width:16%; height:300px">
-      <h3>Saved List 3</h3>
-    </div>
-    <div class="col-sm-6 img-rounded" style="width:2%">
-    </div>
-    <div class="col-sm-6 img-rounded" style="background-color:lightGreen; width:16%; height:300px">
-      <h3>Saved List 4</h3>
-    </div>
-    <div class="col-sm-6 img-rounded" style="width:2%">
-    </div>
-    <div class="col-sm-6 img-rounded" style="background-color:lightBlue; width:16%; height:300px">
-      <h3>Saved List 5</h3>
+<<div class="container">
+  <div class="list-scroll">
+    <div class="row">
+
+      {{#each model as |list index|}}
+        <div class="list-scroll-item col-xs-4">
+            <div class="col-md-6 col-md-offset-0" style="height:300px;width:250px;background-color:rgba(55,198,207,0.69);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);">
+            <h3>Saved List {{increment-index index}}</h3>
+            <ul>
+              {{#each list.listItems as |items|}}
+                <li>{{items.itemAmt}} {{items.itemName}}</li>
+              {{/each}}
+            </ul>
+            <button {{action "insertIntoStore" list}}>Edit</button>
+          </div>
+          <!-- <button {{action "insertIntoStore" list}}>Edit</button> -->
+        </div>
+      {{else}}
+      You don't have any lists yet :(
+      {{/each}}
     </div>
   </div>
 </div>
+{{else}}
+<div class="row" style="height:400px;width:1000px;margin:14px;">
+  <div class="col-md-6 col-md-offset-0" style="height:375px;width:450px;margin-top:120px;background-color:rgba(55,198,207,0.69);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);margin-left:250px;">
+    <div class='page-header' style="text-align:center">
+      <h1>Login</h1>
+    </div>
+  {{input
+      type='text'
+      class='form-control'
+      value=email
+      placeholder='email'
+    }}
+    {{input
+      type='password'
+      class='form-control'
+      value=password
+      placeholder='password'
+    }}
+    <button class='btn btn-default'{{action "signIn" "password" email password}}>Sign in</button>
+    {{#link-to 'register'}}
+    Register
+    {{/link-to}}
+  </div>
+</div>
+{{/if}}

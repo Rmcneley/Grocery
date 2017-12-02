@@ -1,0 +1,25 @@
+{{#if session.isAuthenticated}}
+  Logged in as {{session.currentUser.displayName}}
+  <button {{action "signOut"}}>Sign out</button>
+  {{outlet}}
+{{else}}
+  <div class='page-header'>
+    <h1>Login</h1>
+  </div>
+  {{input
+    type='text'
+    class='form-control'
+    value=email
+    placeholder='email'
+  }}
+  {{input
+    type='password'
+    class='form-control'
+    value=password
+    placeholder='password'
+  }}
+  <button class='btn btn-default' {{action "signIn" "password" email password}}>Sign in</button>
+  {{#link-to 'register'}}
+  Register
+  {{/link-to}}
+{{/if}}

@@ -1,3 +1,23 @@
-{{outlet}}
-
-<h1>Register Here Page</h1>
+<div class="row" style="height:400px;width:1000px;margin:14px;padding:0px;max-width:none;background-color:rgba(66,101,170,0);">
+  <div class="col-md-6 col-md-offset-0" style="height:375px;width:450px;margin-top:120px;background-color:rgba(55,198,207,0.69);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);margin-left:250px;">
+    <div class='page-header' style="text-align:center">
+        <h1>Register</h1>
+    </div>
+    {{input
+        type='text'
+        class='form-control'
+        value=email
+        placeholder='email'
+    }}
+    {{input
+        type='password'
+        class='form-control'
+        value=password
+        placeholder='password'
+    }}
+    <button class='btn btn-default'{{action 'register' email password }}>Register</button>
+    {{#link-to 'profile'}}
+        Login
+    {{/link-to}}
+  </div>
+</div>
