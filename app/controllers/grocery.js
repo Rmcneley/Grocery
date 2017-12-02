@@ -52,46 +52,40 @@ export default Ember.Controller.extend({
   val14: 'Jelly',
   val15: 'Vegetables',
 
+  firebase: Ember.inject.service(),
+
   actions: {
     download() {
       var list = this.store.peekAll('list-item');
       var length = list.get('length');
       var fileInfo = []
-      for (var i = 0; i < length; i++)
-      {
+      for (var i = 0; i < length; i++) {
         var temp = [];
         var arr = list.objectAt(i);
-        var hash = arr.getProperties('itemName', 'itemAmt','itemDesc');
-        temp = ['- ' + hash.itemName + '\n' ];
+        var hash = arr.getProperties('itemName', 'itemAmt', 'itemDesc');
+        temp = ['- ' + hash.itemName + '\n'];
 
-        if (hash.itemDesc != '' && hash.itemDesc != null)
-        {
+        if (hash.itemDesc != '' && hash.itemDesc != null) {
           temp += "\tDescription: " + hash.itemDesc + '\n';
         }
-        if (hash.itemAmt > 1)
-        {
+        if (hash.itemAmt > 1) {
           temp += "\tQuantity: " + hash.itemAmt + '\n';
         }
         fileInfo.push(temp);
       }
-      var file = new File(fileInfo, "Grocery List.txt", {type: "text/plain;charset=utf-8"});
+      var file = new File(fileInfo, "Grocery List.txt", {
+        type: "text/plain;charset=utf-8"
+      });
       saveAs(file);
     },
     save() {
-      this.
-      // var newList = this.store.createList('list',{
-
-      //   groceryList: {
-      //     userName:,
-      //     id:,
-      //     timeStamp:,
-      //     listItems: {
-      //       username:,
-      //       itemName:,
-      //       itemDesc:,
-      //       itemAmt:
-      //     }
-      //   }
+      var user = this.get('session.currentUser');
+      console.log(user);
+      // var list = this.store.peekAll('list-item');
+      // store.createRecord('list', {
+      //   // userId: ,
+      //   // listId: ,
+      //   // timeStamp:
       // });
       // newList.save();
     },
