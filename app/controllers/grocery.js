@@ -79,15 +79,17 @@ export default Ember.Controller.extend({
       saveAs(file);
     },
     save() {
-      var user = this.get('session.currentUser');
+      var user = this.get('session.currentUser.name');
+      let id = this.get('session.currentUser.uid');
+
       console.log(user);
       // var list = this.store.peekAll('list-item');
-      // store.createRecord('list', {
-      //   // userId: ,
-      //   // listId: ,
-      //   // timeStamp:
-      // });
-      // newList.save();
+      var newList = this.store.createRecord('list', {
+        userId: id,
+        listId: 1,
+        timeStamp: new Date()
+      });
+      newList.save();
     },
 
     gClick1() {
