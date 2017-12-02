@@ -80,6 +80,23 @@ export default Ember.Controller.extend({
     },
     save(){
       // do Firebase stuff here
+      var newList = this.store.createList('post', {
+        username:,
+        userId:,
+        emailAddress:,
+        groceryList: {
+          userName:,
+          id:,
+          timeStamp:,
+          listItems: {
+            username:,
+            itemName:,
+            itemDesc:,
+            itemAmt:
+          }
+        }
+      });
+      newList.save();
     },
     gClick1() {
       this.set('valSend', `${this.get('val1')}`);
