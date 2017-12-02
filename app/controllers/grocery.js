@@ -78,10 +78,9 @@ export default Ember.Controller.extend({
       saveAs(file);
     },
     save() {
+      this.
       // var newList = this.store.createList('list',{
-      //   username:,
-      //   userId:,
-      //   emailAddress:,
+
       //   groceryList: {
       //     userName:,
       //     id:,

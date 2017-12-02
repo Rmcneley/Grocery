@@ -1,9 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  listId: DS.attr('number'),
   itemId: DS.attr('number'),
-  itemAmt: DS.attr('number'),
   itemName: DS.attr('string'),
-  itemDesc: DS.attr('string'),
+  itemRank: DS.attr('number'),
 });
