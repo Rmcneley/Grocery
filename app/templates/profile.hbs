@@ -3,36 +3,34 @@
 <div class="container">
   <div class="col-sm-6 img-rounded" style="background-color:lightBlue; width:97%; height:150px">
     <h1>User profile information</h1>
-    <p>When a user is logged in, their information is shown here.  If they have previously saved lists, the 5 most recent lists will be produced in its own container below.  Each container will have a export button which will export the list in the same way the the create list page does.  It will also have a modify button that directs the user to the create list page and fills the list side with the current list information. </p>
+    <p>When a user is logged in, their information is shown here. If they have previously saved lists, the 5 most recent lists will be produced in its own container below. Each container will have a export button which will export the list in the same way
+      the the create list page does. It will also have a modify button that directs the user to the create list page and fills the list side with the current list information. </p>
   </div>
   <div class="col-sm-6" style="height:40px">
   </div>
 </div>
 
 <div class="container">
-  <div class="row-offset-1">
-    <div class="col-sm-6 img-rounded" style="background-color:lightBlue; width:16%; height:300px">
-      <h3>Saved List 1</h3>
-    </div>
-    <div class="col-sm-6 img-rounded" style="width:2%">
-    </div>
-    <div class="col-sm-6 img-rounded" style="background-color:lightGreen; width:16%; height:300px">
-      <h3>Saved List 2</h3>
-    </div>
-    <div class="col-sm-6 img-rounded" style="width:2%">
-    </div>
-    <div class="col-sm-6 img-rounded" style="background-color:lightBlue; width:16%; height:300px">
-      <h3>Saved List 3</h3>
-    </div>
-    <div class="col-sm-6 img-rounded" style="width:2%">
-    </div>
-    <div class="col-sm-6 img-rounded" style="background-color:lightGreen; width:16%; height:300px">
-      <h3>Saved List 4</h3>
-    </div>
-    <div class="col-sm-6 img-rounded" style="width:2%">
-    </div>
-    <div class="col-sm-6 img-rounded" style="background-color:lightBlue; width:16%; height:300px">
-      <h3>Saved List 5</h3>
+  <div class="list-scroll">
+    <div class="row">
+
+      {{#each model as |list index|}}
+        <div class="list-scroll-item col-xs-4">
+          <div class="img-rounded" style="background-color:lightBlue; height:300px;">
+            <h3>Saved List {{increment-index index}}</h3>
+            <ul>
+              {{#each list.listItems as |items|}}
+                <li>{{items.itemAmt}} {{items.itemName}}</li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="img-rounded" style="width:2%">
+            <button {{action "insertIntoStore" list}}>Edit</button>
+          </div>
+        </div>
+      {{else}}
+      You don't have any lists yet :(
+      {{/each}}
     </div>
   </div>
 </div>
