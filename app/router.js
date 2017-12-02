@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('grocery');
   this.route('register');
   //this.route('login');
+  this.route('user');
 });
 
 export default Router;

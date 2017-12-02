@@ -77,9 +77,26 @@ export default Ember.Controller.extend({
       var file = new File(fileInfo, "Grocery List.txt", {type: "text/plain;charset=utf-8"});
       saveAs(file);
     },
-    save(){
-
+    save() {
+      // var newList = this.store.createList('list',{
+      //   username:,
+      //   userId:,
+      //   emailAddress:,
+      //   groceryList: {
+      //     userName:,
+      //     id:,
+      //     timeStamp:,
+      //     listItems: {
+      //       username:,
+      //       itemName:,
+      //       itemDesc:,
+      //       itemAmt:
+      //     }
+      //   }
+      // });
+      // newList.save();
     },
+
     gClick1() {
       this.set('valSend', `${this.get('val1')}`);
       this.set('val1', gItems[count]);

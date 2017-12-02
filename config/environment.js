@@ -23,12 +23,12 @@ module.exports = function(environment) {
       // when it is created
     },
     firebase: {
-      apiKey: 'AIzaSyDdH-mQBXl_ujYe1ooC0Nr4JcwnwGcadCA',
-      authDomain: 'ember-app-3bf40.firebaseapp.com',
-      databaseURL: "https://ember-app-3bf40.firebaseio.com",
-      projectId: "ember-app-3bf40",
-      storageBucket: "ember-app-3bf40.appspot.com",
-      messagingSenderId: "816519448828"
+      apiKey: "AIzaSyAUOCehrymGXaJ4Fji7fnJOcrtCnP9aCkE",
+      authDomain: "grocery-list-14be8.firebaseapp.com",
+      databaseURL: "https://grocery-list-14be8.firebaseio.com",
+      projectId: "grocery-list-14be8",
+      storageBucket: "grocery-list-14be8.appspot.com",
+      messagingSenderId: "598078079647"
     },
     torii: {
       sessionServiceName: 'session'

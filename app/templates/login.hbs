@@ -1,25 +1,27 @@
-{{#if session.isAuthenticated}}
-  Logged in as {{session.currentUser.displayName}}
-  <button {{action "signOut"}}>Sign out</button>
-  {{outlet}}
-{{else}}
-  <div class='page-header'>
-    <h1>Login</h1>
+<!-- <div class="row" style="height:400px;width:1000px;margin:14px;">
+  <div class="col-md-6 col-md-offset-0" style="height:375px;width:450px;margin-top:120px;background-color:rgba(55,198,207,0.69);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);margin-left:250px;">
+    <div class='page-header' style="text-align:center">
+      <h1>Login</h1>
+    </div>
+  {{input
+      type='text'
+      class='form-control'
+      value=email
+      placeholder='email'
+    }}
+    {{input
+      type='password'
+      class='form-control'
+      value=password
+      placeholder='password'
+    }}
+    <button class='btn btn-default'{{action "signIn" "password" email password}}>Sign in</button>
+    {{#link-to 'register'}}
+    Register
+    {{/link-to}}
   </div>
-  {{input
-    type='text'
-    class='form-control'
-    value=email
-    placeholder='email'
-  }}
-  {{input
-    type='password'
-    class='form-control'
-    value=password
-    placeholder='password'
-  }}
-  <button class='btn btn-default' {{action "signIn" "password" email password}}>Sign in</button>
-  {{#link-to 'register'}}
-  Register
-  {{/link-to}}
-{{/if}}
+</div>
+
+{{#if session.isAuthenticated}}
+<meta http-equiv="refresh" content="0"; url="/profile" />
+{{/if}} -->
