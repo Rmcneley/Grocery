@@ -6,12 +6,17 @@ var indexNum = 0;
 
 export default Route.extend({
   firebaseApp: Ember.inject.service(),
+  uid: Ember.computed(function() {
+    return this.get('session.currentUser.uid');
+  }),
   beforeModel: function() {
     return this.get('session').fetch().catch(function() {});
   },
   actions: {
     signIn: function(provider, email, pass) {
       console.log('logging in a user: ' + email);
+      let controller = this.controller;
+
       this.get('session').open('firebase', {
         provider: provider,
         email: email,
@@ -36,98 +41,13 @@ export default Route.extend({
         });
         indexNum++;
       })
+      this.transitionTo('grocery');
     }
   },
   model() {
-    var sessionUserId = this.session.get('session.currentUser.uid');
-    return this.store.query('list', {
-      equalTo: 'Webiz8ZIKuUUHC6J7LczL8EUO1n2',
-      orderBy: 'userId',
-      limitToFirst: 5
-
-    })
+    return this.get('store').query('list', {
+      userId: this.get('uid')
+    });
+    //lists: this.store.findAll('list'),
   },
-
-  afterModel() {
-    console.log(this.get('model'));
-  }
 });
-/*
-    return [{
-        "userName": "Me",
-        "id": '1',
-        "listItems": [{
-            "itemAmt": 1,
-            "itemName": "Milk",
-            "itemDesc": "Comes from a cow"
-          },
-          {
-            "itemAmt": 2,
-            "itemName": "Eggs",
-            "itemDesc": "Comes from a chicken"
-          }
-        ]
-      },
-      {
-        "userName": "Me",
-        "id": '1',
-        "listItems": [{
-            "itemAmt": 3,
-            "itemName": "Milk",
-            "itemDesc": "Comes from a cow"
-          },
-          {
-            "itemAmt": 4,
-            "itemName": "Eggs",
-            "itemDesc": "Comes from a chicken"
-          }
-        ]
-      },
-      {
-        "userName": "Me",
-        "id": '1',
-        "listItems": [{
-            "itemAmt": 5,
-            "itemName": "Milk",
-            "itemDesc": "Comes from a cow"
-          },
-          {
-            "itemAmt": 6,
-            "itemName": "Eggs",
-            "itemDesc": "Comes from a chicken"
-          }
-        ]
-      },
-      {
-        "userName": "Me",
-        "id": '1',
-        "listItems": [{
-            "itemAmt": 7,
-            "itemName": "Milk",
-            "itemDesc": "Comes from a cow"
-          },
-          {
-            "itemAmt": 8,
-            "itemName": "Eggs",
-            "itemDesc": "Comes from a chicken"
-          }
-        ]
-      },
-      {
-        "userName": "Me",
-        "id": '1',
-        "listItems": [{
-            "itemAmt": 9,
-            "itemName": "Milk",
-            "itemDesc": "Comes from a cow"
-          },
-          {
-            "itemAmt": 10,
-            "itemName": "Eggs",
-            "itemDesc": "Comes from a chicken"
-          }
-        ]
-      }
-    ];
-  }
-  */

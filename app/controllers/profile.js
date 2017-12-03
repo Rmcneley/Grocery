@@ -4,8 +4,16 @@ import Ember from 'ember';
 var indexNum = 0;
 
 export default Controller.extend({
-  name: Ember.computed(function () {
+  listItems: Ember.computed(function() {
+    return this.store.findAll('list-item');
+  }),
+
+  uid: Ember.computed(function() {
     return this.get('session.currentUser.uid');
+  }),
+
+  filteredByUid: Ember.computed.filter('model', function(model) {
+    return model.get('userId') === this.get('uid');
   }),
 
   actions: {
@@ -21,4 +29,5 @@ export default Controller.extend({
       })
     }
   }
+
 });
