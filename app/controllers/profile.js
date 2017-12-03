@@ -5,7 +5,7 @@ var indexNum = 0;
 
 export default Controller.extend({
   name: Ember.computed(function () {
-    return this.get('session.currentUser.email');
+    return this.get('session.currentUser.uid');
   }),
 
   actions: {
