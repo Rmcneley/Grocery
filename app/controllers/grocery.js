@@ -1,5 +1,6 @@
 import Ember from 'ember';
 // import FileSaver from 'filesaver';
+
 var gItems = [
   "Butter",
   "Pasta",
@@ -52,7 +53,13 @@ export default Ember.Controller.extend({
   val14: 'Jelly',
   val15: 'Vegetables',
 
-  firebase: Ember.inject.service(),
+
+  listID(){
+    var list = this.store.peekAll('list');
+    var length = list.get('length');
+    return length + 1;
+  },
+
 
   actions: {
     download() {
@@ -79,29 +86,50 @@ export default Ember.Controller.extend({
       saveAs(file);
     },
     save() {
-      var user = this.get('session.currentUser.name');
-      let id = this.get('session.currentUser.uid');
+      // var list = this.store.findAll('list');
+      // var length = list.get('length');
+      // console.log(length);
 
-      console.log(user);
-      // var list = this.store.peekAll('list-item');
+      // // this.store.findRecord('list',"34",{
+      // //   backgroundReload: false
+      // // }).then(function(post) {
+      // //   post.deleteRecord();
+      // //   post.get('isDeleted'); // => true
+      // //   post.save(); // => DELETE to /posts/1
+      // // });
+      let id = this.get('session.currentUser.uid');
+      // //
+      // console.log(id);
+      //this.store.findAll('list-item');
+      // this.store.peekAll('list-item').then(function(post) {
+      //   this.store.unloadAll(post);
+      // });
+      var list = this.store.peekAll('list-item');
+      list.save();
       var newList = this.store.createRecord('list', {
         userId: id,
-        listId: 1,
+        listId: this.listID(),
         timeStamp: new Date()
       });
       newList.save();
     },
+    clearList(){
+      this.store.unloadAll('list-item');
+    },
 
     gClick1() {
+      //this.store.findAll('list-item');
       this.set('valSend', `${this.get('val1')}`);
       this.set('val1', gItems[count]);
       count++;
+      var id = this.listID();
 
       var store = this.get('store');
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: id
       });
       indexNum++;
     },
@@ -113,7 +141,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
       count++;
@@ -126,7 +155,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     },
@@ -138,7 +168,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     },
@@ -150,7 +181,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     },
@@ -162,7 +194,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     },
@@ -174,7 +207,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     },
@@ -186,7 +220,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     },
@@ -198,7 +233,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     },
@@ -210,7 +246,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     },
@@ -222,7 +259,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     },
@@ -234,7 +272,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
       count++;
@@ -247,7 +286,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
       count++;
@@ -260,7 +300,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
       count++;
@@ -273,7 +314,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
       count++;
@@ -284,7 +326,8 @@ export default Ember.Controller.extend({
       store.createRecord('list-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
-        id: indexNum
+        listPlace: indexNum,
+        listId: this.listID()
       });
       indexNum++;
     }

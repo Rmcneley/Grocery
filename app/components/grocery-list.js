@@ -5,9 +5,9 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   actions: {
-    deleteItem(arrIndex) {
+    deleteItem(listPlace) {
       var store = this.get('store');
-      store.findRecord('list-item', arrIndex).then(function(post) {
+      store.findRecord('list-item', listPlace).then(function(post) {
         store.unloadRecord(post);
       });
     },
