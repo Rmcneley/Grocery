@@ -109,7 +109,8 @@ export default Ember.Controller.extend({
       var newList = this.store.createRecord('list', {
         userId: id,
         listId: this.listID(),
-        timeStamp: new Date()
+        timeStamp: new Date(),
+        listItems: list
       });
       newList.save();
     },

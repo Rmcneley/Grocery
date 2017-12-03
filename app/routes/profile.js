@@ -46,8 +46,17 @@ export default Route.extend({
   },
   model() {
     return this.get('store').query('list', {
-      userId: this.get('uid')
+      orderBy: 'userId',
+      equalTo: this.get('uid'),
+      limitToLast: 5
+    }).then((arrayModel) => {
+      return arrayModel.toArray().reverse();
     });
-    //lists: this.store.findAll('list'),
   },
+
+  setupController: function(controller, model) {
+    this._super(...arguments);
+    controller.set('lists', model.toArray());
+  },
+    //lists: this.store.findAll('list'),
 });

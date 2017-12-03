@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  listId: DS.attr('number'),
+  listId: DS.belongsTo('list'),
   listPlace: DS.attr('number'),
   itemId: DS.attr('number'),
   itemAmt: DS.attr('number'),

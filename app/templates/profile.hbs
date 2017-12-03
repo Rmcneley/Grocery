@@ -14,16 +14,20 @@
     <div class="list-scroll">
       <div class="row">
 
-        {{#each filteredByUid as |list index|}}
+        {{#each model as |list index|}}
           <div class="list-scroll-item col-xs-4">
             <div class="col-md-6 col-md-offset-0" style="height:300px;width:250px;background-color:rgba(55,198,207,0.69);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);">
-              <h3>Saved List {{increment-index index}}</h3>
+              <h3>{{moment-format list.timeStamp 'MMM Do YYYY'}}</h3>
+              <div style="float:left">
               <ul>
-                {{#each items as |item|}}
-                  <li>{{item.itemAmt}} {{items.itemName}}</li>
+                {{#each list.listItems as |item|}}
+                  <li>{{item.itemAmt}} {{item.itemName}}</li>
                 {{/each}}
               </ul>
+            </div>
+              <div style="float:right">
               <button {{action "insertIntoStore" list}}>Edit</button>
+            </div>
             </div>
             <!-- <button {{action "insertIntoStore" list}}>Edit</button> -->
           </div>
