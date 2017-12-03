@@ -12,8 +12,6 @@ export default Route.extend({
   actions: {
     signIn: function(provider, email, pass) {
       console.log('logging in a user: ' + email);
-      let controller = this.controller;
-
       this.get('session').open('firebase', {
         provider: provider,
         email: email,
@@ -38,7 +36,6 @@ export default Route.extend({
         });
         indexNum++;
       })
-      this.transitionTo('grocery');
     }
   },
   model() {
