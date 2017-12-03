@@ -12,8 +12,6 @@ export default Route.extend({
   actions: {
     signIn: function(provider, email, pass) {
       console.log('logging in a user: ' + email);
-      let controller = this.controller;
-
       this.get('session').open('firebase', {
         provider: provider,
         email: email,
@@ -38,10 +36,23 @@ export default Route.extend({
         });
         indexNum++;
       })
-      this.transitionTo('grocery');
     }
   },
   model() {
+    var sessionUserId = this.session.get('session.currentUser.uid');
+    return this.store.query('list', {
+      equalTo: 'Webiz8ZIKuUUHC6J7LczL8EUO1n2',
+      orderBy: 'userId',
+      limitToFirst: 5
+
+    })
+  },
+
+  afterModel() {
+    console.log(this.get('model'));
+  }
+});
+/*
     return [{
         "userName": "Me",
         "id": '1',
@@ -119,5 +130,4 @@ export default Route.extend({
       }
     ];
   }
-
-});
+  */

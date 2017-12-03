@@ -11,7 +11,7 @@
                     {{#link-to 'grocery' tagName="li"}}<a href="" style="color:black">Create List</a>{{/link-to}}
                     {{#link-to 'profile' tagName="li"}}<a href="" style="color:black">Saved Lists</a>{{/link-to}}
                     {{#if session.isAuthenticated}}
-                    {{#link-to 'profile' tagName="li"}}<a href="" {{action "signOut"}} style="color:black">Logout</a>{{/link-to}}
+                      {{#link-to 'register' tagName="li"}}<a href="" {{action "signOut"}} style="color:black">Logout</a>{{/link-to}}
                     {{/if}}
                 </ul>
             </div>

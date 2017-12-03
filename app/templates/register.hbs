@@ -3,21 +3,41 @@
     <div class='page-header' style="text-align:center">
         <h1>Register</h1>
     </div>
-    {{input
-        type='text'
-        class='form-control'
-        value=email
-        placeholder='email'
-    }}
-    {{input
-        type='password'
-        class='form-control'
-        value=password
-        placeholder='password'
-    }}
-    <button class='btn btn-default'{{action 'register' email password }}>Register</button>
-    {{#link-to 'profile'}}
-        Login
-    {{/link-to}}
+    <form>
+      <div class="form-group">
+        <label for="username">Username</label>
+        {{input
+            type='text'
+            class='form-control'
+            id='username'
+            value=userName
+            placeholder='Enter username'
+        }}
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        {{input
+            type='text'
+            class='form-control'
+            id='email'
+            value=email
+            placeholder='Enter email'
+        }}
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        {{input
+            type='password'
+            class='form-control'
+            id='password'
+            value=password
+            placeholder='password'
+        }}
+      </div>
+      <button class='btn btn-default'{{action 'register' email password userName}}>Register</button>
+      {{#link-to 'profile'}}
+          Login
+      {{/link-to}}
+    </form>
   </div>
 </div>

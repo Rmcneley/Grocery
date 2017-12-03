@@ -1,8 +1,13 @@
 import Controller from '@ember/controller';
+import Ember from 'ember';
 
 var indexNum = 0;
 
 export default Controller.extend({
+  name: Ember.computed(function () {
+    return this.get('session.currentUser.uid');
+  }),
+
   actions: {
     insertIntoStore(list) {
       list.listItems.forEach((listItem) => {
