@@ -24,8 +24,7 @@ export default Route.extend({
       }).then(() => {
         controller.set('email', null);
         controller.set('password', null);
-      }, (error) => {
-      });
+      }, (error) => {});
     },
     signOut: function() {
       this.get('session').close();

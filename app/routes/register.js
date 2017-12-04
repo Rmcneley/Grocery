@@ -14,7 +14,7 @@ export default Ember.Route.extend({
         provider: provider,
         email: email,
         password: pass
-      }).then (() => {
+      }).then(() => {
         controller.set('email', null);
         controller.set('password', null);
       }, (error) => {

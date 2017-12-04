@@ -25,5 +25,6 @@ export default Controller.extend({
         indexNum++;
       });
       this.transitionToRoute('grocery.list', list);
-},
-}})
+    },
+  }
+})

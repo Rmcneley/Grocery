@@ -54,12 +54,12 @@ export default Ember.Controller.extend({
   val15: 'Vegetables',
 
 
-  listID(){
+  listID() {
     var list = this.store.peekAll('list');
     var length = list.get('length');
     return length + 1;
   },
-  click(val){
+  click(val) {
     this.set('valSend', `${this.get(val)}`);
     this.set(val, gItems[count]);
 
@@ -111,7 +111,7 @@ export default Ember.Controller.extend({
       });
       newList.save();
     },
-    clearList(){
+    clearList() {
       this.store.unloadAll();
     },
 

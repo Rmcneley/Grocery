@@ -1,6 +1,8 @@
-import { helper } from '@ember/component/helper';
+import {
+  helper
+} from '@ember/component/helper';
 
-export function incrementIndex(index/*, hash*/) {
+export function incrementIndex(index /*, hash*/ ) {
   let idx = Number(index);
   return idx + 1;
 }

@@ -1,19 +1,18 @@
-
-    <nav class="navbar navbar-default" style="background-color:rgba(85,104,111,0.45);">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" style="background-size:contain;background-repeat:no-repeat;background-image:url(&quot;assets/img/logo2.png&quot;);width:150px;height:70px;margin:2px;"> </a>
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            </div>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav navbar-right">
-                    {{#link-to 'index' tagName="li"}}<a href="" style="color:black">Home</a>{{/link-to}}
-                    {{#link-to 'grocery' tagName="li"}}<a href="" style="color:black">Create List</a>{{/link-to}}
-                    {{#link-to 'profile' tagName="li"}}<a href="" style="color:black">Saved Lists</a>{{/link-to}}
-                    {{#if session.isAuthenticated}}
-                      {{#link-to 'register' tagName="li"}}<a href="" {{action "signOut"}} style="color:black">Logout</a>{{/link-to}}
-                    {{/if}}
-                </ul>
-            </div>
-        </div>
-    </nav>
+<nav class="navbar navbar-default" style="background-color:rgba(85,104,111,0.45);">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="background-size:contain;background-repeat:no-repeat;background-image:url(&quot;assets/img/logo2.png&quot;);width:150px;height:70px;margin:2px;"> </a>
+      <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    </div>
+    <div class="collapse navbar-collapse" id="navcol-1">
+      <ul class="nav navbar-nav navbar-right">
+        {{#link-to 'index' tagName="li" }}<a href="" style="color:black">Home</a>{{/link-to}}
+        {{#link-to 'grocery' tagName="li" }}<a href="" style="color:black">Create List</a>{{/link-to}}
+        {{#link-to 'profile' tagName="li" }}<a href="" style="color:black">Saved Lists</a>{{/link-to}}
+        {{#if session.isAuthenticated}}
+          {{#link-to 'register' tagName="li" }}<a href="" {{action "signOut"}} style="color:black">Logout</a>{{/link-to}}
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
