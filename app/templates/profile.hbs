@@ -14,7 +14,7 @@
 
         {{#each model as |list index|}}
           <div class="list-scroll-item col-xs-4">
-            <div class="col-md-6 col-md-offset-0" style="height:300px;width:250px;background-color:rgba(55,198,207,0.69);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);">
+            <div class="col-md-6 col-md-offset-0" style="height:300px;width:250px;background-color:rgba(55,198,207,0.69);box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);overflow-y:scroll;">
               <h3>{{moment-format list.timeStamp 'MMM Do YYYY'}}</h3>
               <div style="float:left">
                 <ul>

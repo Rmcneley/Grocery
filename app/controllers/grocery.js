@@ -67,12 +67,13 @@ export default Ember.Controller.extend({
   val12: '',
   val13: '',
   val14: '',
-  init: function(){
-    for (var i = 0; i < 15; i++)
-    {
+  init: function() {
+    for (var i = 0; i < 15; i++) {
       this.set('val' + i, gItems[i]);
       count++;
-    }},
+    }
+    this.store.unloadAll('list-item');
+  },
   listID() {
     var list = this.store.peekAll('list');
     var length = list.get('length');
