@@ -25,7 +25,6 @@ export default Route.extend({
         controller.set('email', null);
         controller.set('password', null);
       }, (error) => {
-        console.log(error);
       });
     },
     signOut: function() {
@@ -58,5 +57,4 @@ export default Route.extend({
     this._super(...arguments);
     controller.set('lists', model.toArray());
   },
-    //lists: this.store.findAll('list'),
 });

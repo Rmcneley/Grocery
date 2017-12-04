@@ -11,12 +11,10 @@ export default Controller.extend({
   actions: {
     insertIntoStore(list) {
       this.store.unloadAll('list-item');
-      console.log(list.get('id'));
       let listItems = this.store.query('list-item', {
         orderBy: 'listId',
         equalTo: list.get('id')
       })
-      console.log(listItems);
       listItems.forEach((listItem) => {
         var store = this.get('store');
         store.createRecord('list-item', {
