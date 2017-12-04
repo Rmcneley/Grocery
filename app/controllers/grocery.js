@@ -2,6 +2,21 @@ import Ember from 'ember';
 // import FileSaver from 'filesaver';
 
 var gItems = [
+  "Milk",
+  "Eggs",
+  "Bread",
+  "Chips",
+  "Cereal",
+  "Beer",
+  "Soda",
+  "Cheese",
+  "Detergent",
+  "fruit",
+  "Stuff For Tacos",
+  "Peanut Butter",
+  "Jelly",
+  "Vegetables",
+  "Meat",
   "Butter",
   "Pasta",
   "Pasta Sauce",
@@ -37,23 +52,27 @@ var indexNum = 0;
 export default Ember.Controller.extend({
   valSend: '',
   valEX: '',
-  val1: 'Milk',
-  val2: 'Eggs',
-  val3: 'Bread',
-  val4: 'Chips',
-  val5: 'Cereal',
-  val6: 'Beer',
-  val7: 'Soda',
-  val8: 'cheese',
-  val9: 'Meat',
-  val10: 'Detergent',
-  val11: 'fruit',
-  val12: 'Stuff for Tacos',
-  val13: 'Peanut butter',
-  val14: 'Jelly',
-  val15: 'Vegetables',
-
-
+  val0: '',
+  val1: '',
+  val2: '',
+  val3: '',
+  val4: '',
+  val5: '',
+  val6: '',
+  val7: '',
+  val8: '',
+  val9: '',
+  val10: '',
+  val11: '',
+  val12: '',
+  val13: '',
+  val14: '',
+  init: function(){
+    for (var i = 0; i < 15; i++)
+    {
+      this.set('val' + i, gItems[i]);
+      count++;
+    }},
   listID() {
     var list = this.store.peekAll('list');
     var length = list.get('length');
@@ -73,7 +92,6 @@ export default Ember.Controller.extend({
     indexNum++;
     count++;
   },
-
 
   actions: {
     download() {
@@ -110,55 +128,57 @@ export default Ember.Controller.extend({
         listItems: list
       });
       newList.save();
+      count = 0;
+      this.init();
     },
     clearList() {
       this.store.unloadAll();
+      console.log(`${this.get('val20')}`);
     },
-
     gClick1() {
-      this.click('val1');
+      this.click('val0');
     },
     gClick2() {
-      this.click('val2');
+      this.click('val1');
     },
     gClick3() {
-      this.click('val3');
+      this.click('val2');
     },
     gClick4() {
-      this.click('val4');
+      this.click('val3');
     },
     gClick5() {
-      this.click('val5');
+      this.click('val4');
     },
     gClick6() {
-      this.click('val6');
+      this.click('val5');
     },
     gClick7() {
-      this.click('val7');
+      this.click('val6');
     },
     gClick8() {
-      this.click('val8');
+      this.click('val7');
     },
     gClick9() {
-      this.click('val9');
+      this.click('val8');
     },
     gClick10() {
-      this.click('val10');
+      this.click('val9');
     },
     gClick11() {
-      this.click('val11');
+      this.click('val10');
     },
     gClick12() {
-      this.click('val12');
+      this.click('val11');
     },
     gClick13() {
-      this.click('val13');
+      this.click('val12');
     },
     gClick14() {
-      this.click('val14');
+      this.click('val13');
     },
     gClick15() {
-      this.click('val15');
+      this.click('val14');
     },
     addEX() {
       this.set('valSend', `${this.get('valEX')}`);
