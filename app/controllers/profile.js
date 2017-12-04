@@ -14,7 +14,7 @@ export default Controller.extend({
       let listItems = this.store.query('list-item', {
         orderBy: 'listId',
         equalTo: list.get('id')
-      })
+      });
       listItems.forEach((listItem) => {
         var store = this.get('store');
         store.createRecord('list-item', {
@@ -23,9 +23,7 @@ export default Controller.extend({
           id: indexNum
         });
         indexNum++;
-      })
-      this.transitionToRoute('grocery');
-    }
-  }
-
-});
+      });
+      this.transitionToRoute('grocery.list', list);
+},
+}})

@@ -115,7 +115,7 @@ export default Ember.Controller.extend({
       newList.save();
     },
     clearList(){
-      this.store.unloadAll('list-item');
+      this.store.unloadAll();
     },
 
     gClick1() {

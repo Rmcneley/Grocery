@@ -12,7 +12,9 @@ Router.map(function() {
   this.route('profile');
   this.route('grocMain');
   this.route('groceryList');
-  this.route('grocery');
+  this.route('grocery', function() {
+    this.route('list', {path: '/list/:list_id'});
+  });
   this.route('register');
   //this.route('login');
   this.route('user');
