@@ -72,7 +72,7 @@ export default Ember.Controller.extend({
       this.set('val' + i, gItems[i]);
       count++;
     }
-    this.store.unloadAll('list-item');
+    this.store.unloadAll('temp-item');
   },
   listID() {
     var list = this.store.peekAll('list');
@@ -84,7 +84,7 @@ export default Ember.Controller.extend({
     this.set(val, gItems[count]);
 
     var store = this.get('store');
-    store.createRecord('list-item', {
+    store.createRecord('temp-item', {
       itemAmt: 1,
       itemName: `${this.get('valSend')}`,
       listPlace: indexNum,
@@ -96,7 +96,7 @@ export default Ember.Controller.extend({
 
   actions: {
     download() {
-      var list = this.store.peekAll('list-item');
+      var list = this.store.peekAll('temp-item');
       var length = list.get('length');
       var fileInfo = []
       for (var i = 0; i < length; i++) {
@@ -119,22 +119,39 @@ export default Ember.Controller.extend({
       saveAs(file);
     },
     save() {
+      var lid = this.listID();
       let id = this.get('session.currentUser.uid');
-      var list = this.store.peekAll('list-item');
-      list.save();
+      var list = this.store.peekAll('temp-item');
+      var length = list.get('length');
+      for (var i = 0; i < length; i++){
+        var arr = list.objectAt(i);
+        var hash = arr.getProperties('itemName', 'itemAmt', 'itemDesc','listId','listPlace');
+        console.log(lid);
+        var item = this.store.createRecord('list-item', {
+          listId: lid,
+          lid: lid,
+          listPlace:hash.listPlace,
+          itemAmt: hash.itemAmt,
+          itemName: hash.itemName,
+          itemDesc:hash.itemDesc
+        })
+          item.save();
+      }
+      console.log('test');
+      var list2 = this.store.peekAll('list-item');
       var newList = this.store.createRecord('list', {
         userId: id,
-        listId: this.listID(),
+        listId: lid,
         timeStamp: new Date(),
-        listItems: list
+        listItems: list2
       });
+      console.log(newList);
       newList.save();
       count = 0;
-      this.init();
+      //this.init();
     },
     clearList() {
       this.store.unloadAll();
-      console.log(`${this.get('val20')}`);
     },
     gClick1() {
       this.click('val0');
@@ -184,7 +201,7 @@ export default Ember.Controller.extend({
     addEX() {
       this.set('valSend', `${this.get('valEX')}`);
       var store = this.get('store');
-      store.createRecord('list-item', {
+      store.createRecord('temp-item', {
         itemAmt: 1,
         itemName: `${this.get('valSend')}`,
         listPlace: indexNum,

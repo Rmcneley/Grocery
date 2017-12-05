@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   actions: {
     deleteItem(listPlace) {
       var store = this.get('store');
-      store.findRecord('list-item', listPlace).then(function(post) {
+      store.findRecord('temp-item', listPlace).then(function(post) {
         store.unloadRecord(post);
       });
     },

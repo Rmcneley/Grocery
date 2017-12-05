@@ -4,8 +4,8 @@
   <div class="col-md-12" style="padding-right:0px;padding-left:0px;width:450px;">
     <div class="container" style="width:480px;height:500px;margin-left:0px;margin-right:0px;padding-right:0px;padding-left:0px;position:fixed;">
       <div class="col-md-6 col-md-offset-0" style="height:375px;width:450px;background-color:rgba(55,198,207,0.69);overflow-y:scroll;box-shadow:10px 15px 20px rgba(0, 0, 0, 0.3);margin-left:22px;position:fixed;">
-        {{#each model as |list-item|}}
-          {{#grocery-list name=list-item.itemName amt=list-item.itemAmt desc=list-item.itemDesc arrIndex=list-item.id}}
+        {{#each model as |temp-item|}}
+          {{#grocery-list name=temp-item.itemName amt=temp-item.itemAmt desc=temp-item.itemDesc arrIndex=temp-item.id}}
           {{/grocery-list}}
         {{/each}}
       </div>
