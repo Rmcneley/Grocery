@@ -8,9 +8,10 @@ export default Controller.extend({
   uid: Ember.computed(function() {
     return this.get('session.currentUser.uid');
   }),
-
-
-
+  displayName: Ember.computed(function() {
+    return this.get('session.currentUser.displayName');
+  }),
+  
   actions: {
     insertIntoStore(list) {
       this.store.unloadAll('list-item');
