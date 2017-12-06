@@ -1,5 +1,4 @@
 import Ember from 'ember';
-// import FileSaver from 'filesaver';
 
 var gItems = [
   "Milk",
@@ -126,7 +125,6 @@ export default Ember.Controller.extend({
       for (var i = 0; i < length; i++){
         var arr = list.objectAt(i);
         var hash = arr.getProperties('itemName', 'itemAmt', 'itemDesc','listId','listPlace');
-        console.log(lid);
         var item = this.store.createRecord('list-item', {
           listId: lid,
           lid: lid,
@@ -137,7 +135,6 @@ export default Ember.Controller.extend({
         })
           item.save();
       }
-      console.log('test');
       var list2 = this.store.peekAll('list-item');
       var newList = this.store.createRecord('list', {
         userId: id,
@@ -145,7 +142,6 @@ export default Ember.Controller.extend({
         timeStamp: new Date(),
         listItems: list2
       });
-      console.log(newList);
       newList.save();
       count = 0;
       //this.init();
